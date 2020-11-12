@@ -10,7 +10,7 @@ const Container = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   width: 100%;
   height: 30vh;
   z-index: 1;
@@ -22,7 +22,6 @@ const ImageContainer = styled.div`
   padding: 0 1rem;
   width: 25vw;
   height: 100%;
-  border: 1px solid purple;
 `;
 
 const FavoriteImages = ({ images }) => {

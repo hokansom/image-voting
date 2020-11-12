@@ -16,6 +16,7 @@ const Entry = styled.section`
   align-items: center;
   padding: 1rem;
   width: 25vw;
+  height: 30vh;
 `;
 
 const VotingPanel = ({ images }) => {

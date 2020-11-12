@@ -14,18 +14,20 @@ const Container = styled.div`
 `;
 
 const ImageContainer = styled.div`
+  padding-top: 8px;
   display: inline-block;
+  width: 100%;
+  height: 80%;
 `;
 
 const StyledImage = styled.img`
-  border: 1px solid black;
-  border-radius: 8px;
-  max-width: 50%;
-  max-height: 50%;
+  max-width: 100%;
+  max-height: 100%;
 `;
 
 const AltText = styled.h5`
   margin: 0;
+  padding-top: 4px;
 `;
 
 const Image = ({ image: { altText, url } }) => {
@@ -33,8 +35,8 @@ const Image = ({ image: { altText, url } }) => {
     <Container>
       <ImageContainer>
         <StyledImage src={url} alt={altText} />
-        <AltText>{altText}</AltText>
       </ImageContainer>
+      <AltText>{altText}</AltText>
     </Container>
   );
 };

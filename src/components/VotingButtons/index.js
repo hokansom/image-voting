@@ -7,7 +7,6 @@ const ButtonsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem;
 `;
 
 const PaddedIcon = styled.div`
