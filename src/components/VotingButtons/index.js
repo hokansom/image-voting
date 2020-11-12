@@ -1,19 +1,33 @@
 import React from "react";
 import styled from "styled-components";
-import { IconContext } from "react-icons";
-import { AiFillLike, AiFillDislike } from "react-icons/ai";
+import { Downvote, Upvote } from "@styled-icons/boxicons-solid";
+import { Zap } from "@styled-icons/octicons";
 
+const RedZap = styled(Zap)`
+  color: red;
+`;
 const ButtonsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 1rem;
 `;
 
-const PaddedIcon = styled.div`
-  padding: 1rem;
-  &:hover {
+const IconStyling = `
+  color: #61dafb;
+  &: hover {
+    color: blue;
     cursor: pointer;
   }
+  size: 2rem;
+`;
+
+const UpvoteIcon = styled(Upvote)`
+  ${IconStyling};
+`;
+
+const DownvoteIcon = styled(Downvote)`
+  ${IconStyling};
 `;
 
 const VotingButtons = ({ updateCount }) => {
@@ -27,19 +41,14 @@ const VotingButtons = ({ updateCount }) => {
     // updateCount();
   };
 
-  const iconStyle = { color: "61DAFB", size: "2rem" };
-
   return (
-    <ButtonsWrapper>
-      <IconContext.Provider value={iconStyle}>
-        <PaddedIcon onClick={upVote}>
-          <AiFillLike />
-        </PaddedIcon>
-        <PaddedIcon onClick={downVote}>
-          <AiFillDislike />
-        </PaddedIcon>
-      </IconContext.Provider>
-    </ButtonsWrapper>
+    <div>
+      <ButtonsWrapper>
+        <UpvoteIcon />
+        Vote
+        <DownvoteIcon />
+      </ButtonsWrapper>
+    </div>
   );
 };
 

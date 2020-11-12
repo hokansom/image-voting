@@ -17,6 +17,8 @@ const Entry = styled.section`
   padding: 1rem;
   width: 25vw;
   height: 30vh;
+  border: 1px solid green;
+  justify-content: center;
 `;
 
 const VotingPanel = ({ images }) => {
