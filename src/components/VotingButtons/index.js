@@ -1,11 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Downvote, Upvote } from "@styled-icons/boxicons-solid";
-import { Zap } from "@styled-icons/octicons";
+import { grey, lightBlue, midBlue } from "../../resources/style-constants.js";
 
-const RedZap = styled(Zap)`
-  color: red;
-`;
 const ButtonsWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,12 +11,12 @@ const ButtonsWrapper = styled.div`
 `;
 
 const IconStyling = `
-  color: #61dafb;
+  color: ${lightBlue};
+  transition: color 0.5s ease;
   &: hover {
-    color: blue;
+    color: ${midBlue};
     cursor: pointer;
   }
-  size: 2rem;
 `;
 
 const UpvoteIcon = styled(Upvote)`
@@ -29,6 +26,8 @@ const UpvoteIcon = styled(Upvote)`
 const DownvoteIcon = styled(Downvote)`
   ${IconStyling};
 `;
+
+const iconSize = 44;
 
 const VotingButtons = ({ updateCount }) => {
   const upVote = (event) => {
@@ -44,9 +43,9 @@ const VotingButtons = ({ updateCount }) => {
   return (
     <div>
       <ButtonsWrapper>
-        <UpvoteIcon />
-        Vote
-        <DownvoteIcon />
+        <UpvoteIcon onClick={upVote} size={iconSize} />
+        <p> Vote</p>
+        <DownvoteIcon onClick={downVote} size={iconSize} />
       </ButtonsWrapper>
     </div>
   );

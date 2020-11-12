@@ -1,4 +1,10 @@
 import styled from "styled-components";
+import {
+  grey,
+  lightBlue,
+  midBlue,
+  darkBlue
+} from "../../resources/style-constants.js";
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -10,7 +16,8 @@ const Container = styled.div`
   height: 60%;
   width: 100%;
   z-index: 2;
-  background-color: #fafafa;
+  background-color: ${grey};
+  color: ${darkBlue};
 `;
 
 const ImageContainer = styled.div`

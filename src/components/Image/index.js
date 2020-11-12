@@ -1,5 +1,5 @@
-import React from "react";
 import styled from "styled-components";
+import { grey, darkBlue } from "../../resources/style-constants.js";
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -8,9 +8,10 @@ const Container = styled.div`
   align-items: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 8px;
-  background-color: #fafafa;
+  background-color: ${grey};
   width: 75%;
   height: 100%;
+  color: ${darkBlue};
 `;
 
 const ImageContainer = styled.div`
@@ -24,7 +25,7 @@ const StyledImage = styled.img`
   max-height: 100%;
 `;
 
-const AltText = styled.h5`
+const AltText = styled.h4`
   margin: 0;
   padding-top: 4px;
 `;

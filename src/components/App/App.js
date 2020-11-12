@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import "./App.css";
 import FavoriteImages from "../FavoriteImages";
 import VotingPanel from "../VotingPanel";
+import { grey2 } from "../../resources/style-constants.js";
 
-const Spacer = styled.div`
-  height: 30vh;
+const Page = styled.div`
+  background-color: ${grey2};
+  text-align: center;
 `;
 
 const testImages = [
@@ -48,10 +49,10 @@ const testImages = [
 
 function App() {
   return (
-    <div className="App">
+    <Page>
       <FavoriteImages images={testImages} />
       <VotingPanel images={testImages} />
-    </div>
+    </Page>
   );
 }
 
