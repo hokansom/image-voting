@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Downvote, Upvote } from "@styled-icons/boxicons-solid";
-import { grey, lightBlue, midBlue } from "../../resources/style-constants.js";
+import { lightBlue, midBlue } from "../../resources/style-constants.js";
 
 const ButtonsWrapper = styled.div`
   display: flex;
@@ -29,22 +29,22 @@ const DownvoteIcon = styled(Downvote)`
 
 const iconSize = 44;
 
-const VotingButtons = ({ updateCount }) => {
+const VotingButtons = ({ image, updateCount }) => {
   const upVote = (event) => {
     event.preventDefault();
-    // updateCount();
+    updateCount(image, true);
   };
 
   const downVote = (event) => {
     event.preventDefault();
-    // updateCount();
+    updateCount(image, false);
   };
 
   return (
     <div>
       <ButtonsWrapper>
         <UpvoteIcon onClick={upVote} size={iconSize} />
-        <p> Vote</p>
+        <p>Vote</p>
         <DownvoteIcon onClick={downVote} size={iconSize} />
       </ButtonsWrapper>
     </div>

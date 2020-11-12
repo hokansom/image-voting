@@ -1,13 +1,7 @@
 import styled from "styled-components";
 import Image from "../Image";
 import VotingButtons from "../VotingButtons";
-import {
-  grey,
-  grey2,
-  lightBlue,
-  midBlue,
-  darkBlue
-} from "../../resources/style-constants.js";
+import { grey2, darkBlue } from "../../resources/style-constants.js";
 
 const Grid = styled.div`
   display: flex;
@@ -28,13 +22,27 @@ const Entry = styled.div`
   color: ${darkBlue};
 `;
 
-const VotingPanel = ({ images }) => {
+const VotingPanel = ({ images, setImages }) => {
+  const updateCount = (image, increaseCount) => {
+    let updatedImages = [...images];
+    let imageIndex = updatedImages.findIndex((img) => img.id === image.id);
+    if (increaseCount) {
+      updatedImages[imageIndex].count += 1;
+    } else {
+      updatedImages[imageIndex].count =
+        updatedImages[imageIndex].count > 1
+          ? updatedImages[imageIndex].count - 1
+          : 0;
+    }
+    setImages(updatedImages);
+  };
+
   return (
     <Grid>
       {images.map((image, index) => {
         return (
           <Entry key={index}>
-            <VotingButtons />
+            <VotingButtons {...{ image, updateCount }} />
             <Image {...{ image }} />
           </Entry>
         );

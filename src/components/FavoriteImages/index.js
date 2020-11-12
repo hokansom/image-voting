@@ -38,8 +38,8 @@ const FavoriteImages = ({ images }) => {
   const [topImages, setTopImages] = useState([]);
 
   useEffect(() => {
-    let sortedImages = [...images];
-    sortedImages = images.sort((a, b) => b.count - a.count);
+    let sortedImages = images.slice();
+    sortedImages.sort((a, b) => b.count - a.count);
     setTopImages(sortedImages.slice(0, 3));
   }, [images]);
 

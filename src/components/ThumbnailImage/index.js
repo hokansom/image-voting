@@ -1,10 +1,5 @@
 import styled from "styled-components";
-import {
-  grey,
-  lightBlue,
-  midBlue,
-  darkBlue
-} from "../../resources/style-constants.js";
+import { grey, darkBlue } from "../../resources/style-constants.js";
 
 const Container = styled.div`
   box-sizing: border-box;
