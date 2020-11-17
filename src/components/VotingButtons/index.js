@@ -1,7 +1,7 @@
-import React from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import { Downvote, Upvote } from "@styled-icons/boxicons-solid";
-import { lightBlue, midBlue } from "../../resources/style-constants.js";
+import ThemeContext from "../ThemeContext";
 
 const ButtonsWrapper = styled.div`
   display: flex;
@@ -10,26 +10,29 @@ const ButtonsWrapper = styled.div`
   padding: 1rem;
 `;
 
-const IconStyling = `
-  color: ${lightBlue};
-  transition: color 0.5s ease;
-  &: hover {
-    color: ${midBlue};
-    cursor: pointer;
-  }
-`;
+const IconStyling = (props) => {
+  return `
+    color: ${props.color};
+    transition: color 0.5s ease;
+    &: hover {
+      color: ${props.hoverColor};
+      cursor: pointer;
+    }
+  `;
+};
 
 const UpvoteIcon = styled(Upvote)`
-  ${IconStyling};
+  ${(props) => IconStyling(props)};
 `;
 
 const DownvoteIcon = styled(Downvote)`
-  ${IconStyling};
+  ${(props) => IconStyling(props)};
 `;
 
 const iconSize = 44;
 
 const VotingButtons = ({ image, updateCount }) => {
+  const theme = useContext(ThemeContext);
   const upVote = (event) => {
     event.preventDefault();
     updateCount(image, true);
@@ -43,9 +46,19 @@ const VotingButtons = ({ image, updateCount }) => {
   return (
     <div>
       <ButtonsWrapper>
-        <UpvoteIcon onClick={upVote} size={iconSize} />
+        <UpvoteIcon
+          onClick={upVote}
+          size={iconSize}
+          color={theme.lightBlue}
+          hoverColor={theme.midBlue}
+        />
         <p>Vote</p>
-        <DownvoteIcon onClick={downVote} size={iconSize} />
+        <DownvoteIcon
+          onClick={downVote}
+          size={iconSize}
+          color={theme.lightBlue}
+          hoverColor={theme.midBlue}
+        />
       </ButtonsWrapper>
     </div>
   );

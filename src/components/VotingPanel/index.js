@@ -1,14 +1,14 @@
+import { useContext } from "react";
 import styled from "styled-components";
 import Image from "../Image";
 import VotingButtons from "../VotingButtons";
-import { grey2, darkBlue } from "../../resources/style-constants.js";
+import ThemeContext from "../ThemeContext";
 
 const Grid = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: ${grey2};
 `;
 
 const Entry = styled.div`
@@ -19,10 +19,12 @@ const Entry = styled.div`
   width: 25vw;
   height: 30vh;
   justify-content: center;
-  color: ${darkBlue};
+  color: ${({ color }) => color};
 `;
 
 const VotingPanel = ({ images, setImages }) => {
+  const theme = useContext(ThemeContext);
+
   const updateCount = (image, increaseCount) => {
     let updatedImages = [...images];
     let imageIndex = updatedImages.findIndex((img) => img.id === image.id);
@@ -41,7 +43,7 @@ const VotingPanel = ({ images, setImages }) => {
     <Grid>
       {images.map((image, index) => {
         return (
-          <Entry key={index}>
+          <Entry key={index} color={theme.darkBlue}>
             <VotingButtons {...{ image, updateCount }} />
             <Image {...{ image }} />
           </Entry>

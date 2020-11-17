@@ -1,5 +1,6 @@
+import { useContext } from "react";
 import styled from "styled-components";
-import { grey, darkBlue } from "../../resources/style-constants.js";
+import ThemeContext from "../ThemeContext";
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -8,10 +9,10 @@ const Container = styled.div`
   align-items: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 8px;
-  background-color: ${grey};
+  background-color: ${({ backgroundColor }) => backgroundColor};
   width: 75%;
   height: 100%;
-  color: ${darkBlue};
+  color: ${({ textColor }) => textColor}; ;
 `;
 
 const ImageContainer = styled.div`
@@ -30,8 +31,9 @@ const AltText = styled.h4`
   padding-top: 4px;
 `;
 const Image = ({ image: { altText, url } }) => {
+  const theme = useContext(ThemeContext);
   return (
-    <Container>
+    <Container backgroundColor={theme.grey} textColor={theme.darkBlue}>
       <ImageContainer>
         <StyledImage src={url} alt={altText} />
       </ImageContainer>

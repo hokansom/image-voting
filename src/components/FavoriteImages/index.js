@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import Image from "../ThumbnailImage";
-import { lightBlue, midBlue } from "../../resources/style-constants.js";
+import ThemeContext from "../ThemeContext";
 
 const Container = styled.div`
   position: sticky;
@@ -11,11 +11,11 @@ const Container = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-bottom: 2px solid ${midBlue};
+  border-bottom: 2px solid ${({ borderColor }) => borderColor};
 
   height: 30vh;
   z-index: 1;
-  background-color: ${lightBlue};
+  background-color: ${({ backgroundColor }) => backgroundColor};
 `;
 
 const ImagesWrapper = styled.div`
@@ -36,6 +36,7 @@ const ImageContainer = styled.div`
 
 const FavoriteImages = ({ images }) => {
   const [topImages, setTopImages] = useState([]);
+  const theme = useContext(ThemeContext);
 
   useEffect(() => {
     let sortedImages = images.slice();
@@ -44,7 +45,7 @@ const FavoriteImages = ({ images }) => {
   }, [images]);
 
   return (
-    <Container>
+    <Container borderColor={theme.midBlue} backgroundColor={theme.lightBlue}>
       <ImagesWrapper>
         {topImages.map((image, index) => {
           return (
