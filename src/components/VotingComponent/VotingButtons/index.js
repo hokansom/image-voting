@@ -7,7 +7,7 @@ const ButtonsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem;
+  padding-right: 1rem;
 `;
 
 const IconStyling = (props) => {
