@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import Image from "../Image";
-import VotingButtons from "../VotingButtons";
-import ThemeContext from "../../ThemeContext";
+import Image from "./Image";
+import VotingButtons from "./VotingButtons";
+import ThemeContext from "../ThemeContext";
 
 const Grid = styled.div`
   display: flex;
