@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import Image from "../ThumbnailImage";
-import ThemeContext from "../ThemeContext";
+import ThemeContext from "../../ThemeContext";
 
 const Container = styled.div`
   position: sticky;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
-import FavoriteImages from "../FavoriteImages";
-import VotingPanel from "../VotingPanel";
+import FavoriteImages from "../TopImagesComponent/FavoriteImages";
+import VotingPanel from "../VotingComponent/VotingPanel";
 import ThemeContext from "../ThemeContext";
 import testImages from "../../images";
 import Button from "../Button";

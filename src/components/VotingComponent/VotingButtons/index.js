@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import { Downvote, Upvote } from "@styled-icons/boxicons-solid";
-import ThemeContext from "../ThemeContext";
+import ThemeContext from "../../ThemeContext";
 
 const ButtonsWrapper = styled.div`
   display: flex;
