@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Modal from "./Modal";
-import { Close } from "@styled-icons/ionicons-solid";
 
 const Container = styled.div`
   display: flex;
@@ -25,16 +24,6 @@ const H2 = styled.h2`
   margin: 0 0 1rem 0;
 `;
 
-const CloseButton = styled.div`
-  position: absolute;
-  top: 5%;
-  right: 12.5%;
-  &:hover {
-    cursor: pointer;
-    opacity: 0.5;
-  }
-`;
-
 const ImageModal = ({
   image: { altText, credit, url },
   modalOpened,
@@ -43,9 +32,6 @@ const ImageModal = ({
   return (
     <Modal onClose={closeModal} open={modalOpened}>
       <Container>
-        <CloseButton onClick={closeModal}>
-          <Close size="2rem" />
-        </CloseButton>
         <H2>{altText}</H2>
         <ImageContainer>
           <StyledImage src={url} alt={altText} />
