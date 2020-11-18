@@ -4,6 +4,7 @@ import FavoriteImages from "../FavoriteImages";
 import VotingPanel from "../VotingPanel";
 import ThemeContext from "../ThemeContext";
 import testImages from "../../images";
+import Button from "../Button";
 
 const theme = {
   grey: "#f7f9fb",
@@ -41,7 +42,7 @@ const App = () => {
       <Page color={theme.grey2}>
         <FavoriteImages images={visibleImages} />
         <VotingPanel images={visibleImages} setImages={setVisibleImages} />
-        {hasMore && <div onClick={showMore}>Show More</div>}
+        {hasMore && <Button onClick={showMore}>Show More</Button>}
       </Page>
     </ThemeContext.Provider>
   );
