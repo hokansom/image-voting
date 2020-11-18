@@ -12,7 +12,12 @@ const Container = styled.div`
   background-color: ${({ backgroundColor }) => backgroundColor};
   width: 75%;
   height: 100%;
-  color: ${({ textColor }) => textColor}; ;
+  color: ${({ textColor }) => textColor};
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -30,10 +35,14 @@ const AltText = styled.h4`
   margin: 0;
   padding-top: 4px;
 `;
-const Image = ({ image: { altText, url } }) => {
+const Image = ({ image, image: { altText, url }, openModal }) => {
   const theme = useContext(ThemeContext);
   return (
-    <Container backgroundColor={theme.grey} textColor={theme.darkBlue}>
+    <Container
+      onClick={() => openModal(image)}
+      backgroundColor={theme.grey}
+      textColor={theme.darkBlue}
+    >
       <ImageContainer>
         <StyledImage src={url} alt={altText} />
       </ImageContainer>

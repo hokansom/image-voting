@@ -5,6 +5,7 @@ import VotingPanel from "../VotingComponent";
 import ThemeContext from "../ThemeContext";
 import testImages from "../../images";
 import Button from "../Button";
+import ImageModal from "../ImageModal";
 
 const theme = {
   grey: "#f7f9fb",
@@ -22,6 +23,8 @@ const Page = styled.div`
 const App = () => {
   const images = [...testImages];
   const [visibleImages, setVisibleImages] = useState(images.slice(0, 6));
+  const [currentImage, setCurrentImage] = useState();
+  const [modalOpened, setModalOpened] = useState(false);
 
   const hasMore = visibleImages.length < images.length;
 
@@ -37,12 +40,29 @@ const App = () => {
     }
   };
 
+  const showModal = (image) => {
+    setModalOpened(true);
+    setCurrentImage(image);
+  };
+
+  const closeModal = () => {
+    setModalOpened(false);
+    setCurrentImage(undefined);
+  };
+
   return (
     <ThemeContext.Provider value={theme}>
       <Page color={theme.grey2}>
         <FavoriteImages images={visibleImages} />
-        <VotingPanel images={visibleImages} setImages={setVisibleImages} />
+        <VotingPanel
+          images={visibleImages}
+          setImages={setVisibleImages}
+          openModal={showModal}
+        />
         {hasMore && <Button onClick={showMore}>Show More</Button>}
+        {currentImage && (
+          <ImageModal image={currentImage} {...{ modalOpened, closeModal }} />
+        )}
       </Page>
     </ThemeContext.Provider>
   );
