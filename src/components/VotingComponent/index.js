@@ -22,7 +22,7 @@ const Entry = styled.div`
   color: ${({ color }) => color};
 `;
 
-const VotingPanel = ({ images, setImages }) => {
+const VotingPanel = ({ images, setImages, openModal }) => {
   const theme = useContext(ThemeContext);
 
   const updateCount = (image, increaseCount) => {
@@ -45,7 +45,7 @@ const VotingPanel = ({ images, setImages }) => {
         return (
           <Entry key={index} color={theme.darkBlue}>
             <VotingButtons {...{ image, updateCount }} />
-            <Image {...{ image }} />
+            <Image {...{ image, openModal }} />
           </Entry>
         );
       })}
